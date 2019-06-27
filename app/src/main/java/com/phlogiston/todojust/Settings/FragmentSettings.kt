@@ -1,4 +1,4 @@
-package com.phlogiston.todojust.fragments
+package com.phlogiston.todojust.Settings
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

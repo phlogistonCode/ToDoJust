@@ -4,8 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.phlogiston.todojust.notes.FragmentNotes
+import com.phlogiston.todojust.Planning.FragmentPlanning
 import com.phlogiston.todojust.R.id.*
-import com.phlogiston.todojust.fragments.*
+import com.phlogiston.todojust.Settings.FragmentSettings
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

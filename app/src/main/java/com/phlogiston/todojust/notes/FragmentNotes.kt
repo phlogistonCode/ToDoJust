@@ -1,5 +1,6 @@
-package com.phlogiston.todojust.fragments
+package com.phlogiston.todojust.notes
 
+import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -8,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.phlogiston.todojust.R.layout
-import com.phlogiston.todojust.fragments.notes.AdapterRecViewNotes
-import com.phlogiston.todojust.fragments.notes.Note
+import com.phlogiston.todojust.notes.adapters.AdapterRecViewNotes
+import com.phlogiston.todojust.notes.models.Note
 import com.squareup.moshi.*
 import kotlinx.android.synthetic.main.fragment_notes.*
 import java.io.BufferedReader
@@ -17,7 +18,6 @@ import java.io.File
 
 
 class FragmentNotes : Fragment() {
-
     private var values: MutableList<Note> = mutableListOf()
     private var mAdapter: AdapterRecViewNotes? = null
     private var mutableListNote = Types.newParameterizedType(MutableList::class.java, Note::class.java)

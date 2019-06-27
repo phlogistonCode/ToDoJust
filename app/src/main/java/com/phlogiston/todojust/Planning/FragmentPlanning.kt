@@ -1,4 +1,4 @@
-package com.phlogiston.todojust.fragments
+package com.phlogiston.todojust.Planning
 
 import android.os.Bundle
 import android.view.*

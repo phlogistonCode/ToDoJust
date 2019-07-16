@@ -19,7 +19,6 @@ interface AppComponent : AndroidInjector<ToDoJustApp> {
 
     @Component.Builder
     interface Builder {
-
         @BindsInstance
         fun application(application: Application): Builder
 

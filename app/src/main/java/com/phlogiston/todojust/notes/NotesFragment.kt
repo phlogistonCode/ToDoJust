@@ -1,23 +1,24 @@
 package com.phlogiston.todojust.notes
 
-import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.CompoundButton
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.phlogiston.todojust.R.layout
+import com.phlogiston.todojust.di.scope.PerActivity
 import com.phlogiston.todojust.notes.adapters.AdapterRecViewNotes
 import com.phlogiston.todojust.notes.models.Note
 import com.squareup.moshi.*
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_notes.*
 import java.io.BufferedReader
 import java.io.File
+import javax.inject.Inject
 
-
-class FragmentNotes : Fragment() {
+@PerActivity
+class NotesFragment @Inject constructor() : DaggerFragment(), NotesContract.View {
     private var values: MutableList<Note> = mutableListOf()
     private var mAdapter: AdapterRecViewNotes? = null
     private var mutableListNote = Types.newParameterizedType(MutableList::class.java, Note::class.java)
@@ -26,14 +27,13 @@ class FragmentNotes : Fragment() {
     private val onButtonClickListener = View.OnClickListener { item ->
         when (item.id) {
             btnAddNote.id -> {
-                if (!etAddNote.text.isEmpty()) {
+                if (etAddNote.text.isNotEmpty()) {
                     values.add(0, Note(false, etAddNote.text.toString()))
                     mAdapter?.notifyItemInserted(0)
                     etAddNote.text.clear()
                     saveNotesInJson(values, "notes")
                 }
             }
-
         }
     }
 

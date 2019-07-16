@@ -5,7 +5,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import com.phlogiston.todojust.R.layout
 
-class FragmentPlanning : Fragment() {
+class PlanningFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(layout.fragment_planning, container, false)
     }

@@ -6,6 +6,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -51,6 +52,7 @@ fun Activity.showCustomDialog(
     negativeButton?.let { dialogBuilder.setNegativeButton(getString(it), dialogListener) }
     val dialog = dialogBuilder.create()
 
+    //TODO: Вылет приложения при показе диалога и смене экрана
     dialog.setOnShowListener {
         negativeColor?.let {
             dialog.getButton(androidx.appcompat.app.AlertDialog.BUTTON_NEGATIVE)

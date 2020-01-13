@@ -11,5 +11,3 @@ fun checkPermission(context: Context, permission: String) =
 
 fun displayHeight() = Resources.getSystem().displayMetrics.heightPixels
 fun displayWidth() = Resources.getSystem().displayMetrics.widthPixels
-
-

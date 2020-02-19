@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">ToDoJust</string>
-    <string name="title_notes">Notes</string>
-    <string name="title_planning">Planning</string>
-    <string name="title_settings">Settings</string>
-    <string name="et_addnote_hint">I want</string>
-    <string name="add_note_button_description">Add note</string>
-</resources>

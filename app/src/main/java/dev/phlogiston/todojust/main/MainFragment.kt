@@ -1,9 +1,9 @@
-package dev.phlogiston.base.main
+package dev.phlogiston.todojust.main
 
 import android.view.View
-import dev.phlogiston.base.R
-import dev.phlogiston.base.core.BaseFragment
-import dev.phlogiston.base.core.extensions.activityViewModel
+import dev.phlogiston.todojust.R
+import dev.phlogiston.todojust.core.BaseFragment
+import dev.phlogiston.todojust.core.extensions.activityViewModel
 
 class MainFragment : BaseFragment() {
 

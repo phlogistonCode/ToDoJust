@@ -1,9 +1,9 @@
-package dev.phlogiston.base.main
+package dev.phlogiston.todojust.main
 
 import android.os.Bundle
-import dev.phlogiston.base.R
-import dev.phlogiston.base.core.BaseActivity
-import dev.phlogiston.base.core.extensions.viewModel
+import dev.phlogiston.todojust.R
+import dev.phlogiston.todojust.core.BaseActivity
+import dev.phlogiston.todojust.core.extensions.viewModel
 
 class MainActivity : BaseActivity() {
 

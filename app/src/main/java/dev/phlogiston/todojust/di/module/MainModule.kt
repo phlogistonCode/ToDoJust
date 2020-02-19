@@ -1,8 +1,8 @@
-package dev.phlogiston.base.di.module
+package dev.phlogiston.todojust.di.module
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import dev.phlogiston.base.main.MainFragment
+import dev.phlogiston.todojust.main.MainFragment
 
 @Module
 abstract class MainModule {

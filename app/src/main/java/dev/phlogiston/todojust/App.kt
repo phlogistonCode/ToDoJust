@@ -1,9 +1,9 @@
-package dev.phlogiston.base
+package dev.phlogiston.todojust
 
 import android.content.res.Resources
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
-import dev.phlogiston.base.di.DaggerAppComponent
+import dev.phlogiston.todojust.di.DaggerAppComponent
 
 class App : DaggerApplication() {
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> =

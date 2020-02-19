@@ -1,4 +1,4 @@
-package dev.phlogiston.base.core.extensions
+package dev.phlogiston.todojust.core.extensions
 
 import android.app.Activity
 import android.content.Intent

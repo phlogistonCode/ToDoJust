@@ -1,4 +1,4 @@
-package dev.phlogiston.base.core
+package dev.phlogiston.todojust.core
 
 interface OnBackPressed {
     fun onBackPressed(): Boolean

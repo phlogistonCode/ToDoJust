@@ -1,4 +1,4 @@
-package dev.phlogiston.base
+package dev.phlogiston.todojust
 
 import org.junit.Test
 

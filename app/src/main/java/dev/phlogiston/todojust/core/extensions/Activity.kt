@@ -1,4 +1,4 @@
-package dev.phlogiston.base.core.extensions
+package dev.phlogiston.todojust.core.extensions
 
 import android.app.Activity
 import androidx.annotation.ArrayRes
@@ -6,11 +6,10 @@ import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import dev.phlogiston.base.R
+import dev.phlogiston.todojust.R
 
 
 inline fun <reified T : ViewModel> AppCompatActivity.viewModel(

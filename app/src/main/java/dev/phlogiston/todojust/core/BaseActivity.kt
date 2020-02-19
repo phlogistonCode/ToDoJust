@@ -1,4 +1,4 @@
-package dev.phlogiston.base.core
+package dev.phlogiston.todojust.core
 
 import android.view.ViewGroup
 import androidx.annotation.IdRes
@@ -8,10 +8,10 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import dagger.android.support.DaggerAppCompatActivity
-import dev.phlogiston.base.R
-import dev.phlogiston.base.core.extensions.viewModel
-import dev.phlogiston.base.core.mvvm.BaseViewModel
-import dev.phlogiston.base.core.mvvm.ViewModelFactory
+import dev.phlogiston.todojust.R
+import dev.phlogiston.todojust.core.extensions.viewModel
+import dev.phlogiston.todojust.core.mvvm.BaseViewModel
+import dev.phlogiston.todojust.core.mvvm.ViewModelFactory
 import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 

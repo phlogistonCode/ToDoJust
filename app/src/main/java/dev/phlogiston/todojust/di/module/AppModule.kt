@@ -1,9 +1,9 @@
-package dev.phlogiston.base.di.module
+package dev.phlogiston.todojust.di.module
 
 import android.content.Context
 import dagger.Module
 import dagger.Provides
-import dev.phlogiston.base.App
+import dev.phlogiston.todojust.App
 import javax.inject.Singleton
 
 @Module

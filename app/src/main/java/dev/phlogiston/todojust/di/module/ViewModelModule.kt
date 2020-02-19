@@ -1,13 +1,13 @@
-package dev.phlogiston.base.di.module
+package dev.phlogiston.todojust.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import dev.phlogiston.base.core.mvvm.ViewModelKey
+import dev.phlogiston.todojust.core.mvvm.ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
-import dev.phlogiston.base.core.mvvm.ViewModelFactory
-import dev.phlogiston.base.main.MainViewModel
+import dev.phlogiston.todojust.core.mvvm.ViewModelFactory
+import dev.phlogiston.todojust.main.MainViewModel
 
 @Suppress("unused")
 @Module

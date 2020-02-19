@@ -1,4 +1,4 @@
-package dev.phlogiston.base.core.mvvm
+package dev.phlogiston.todojust.core.mvvm
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

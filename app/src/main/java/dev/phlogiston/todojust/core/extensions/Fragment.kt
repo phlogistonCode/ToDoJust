@@ -1,9 +1,6 @@
-package dev.phlogiston.base.core.extensions
+package dev.phlogiston.todojust.core.extensions
 
-import android.app.Activity
 import android.content.DialogInterface
-import android.content.Intent
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -16,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import dev.phlogiston.base.R
+import dev.phlogiston.todojust.R
 
 inline fun <reified T : ViewModel> Fragment.viewModel(
     factory: ViewModelProvider.Factory

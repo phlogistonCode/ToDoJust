@@ -1,14 +1,14 @@
-package dev.phlogiston.base.di
+package dev.phlogiston.todojust.di
 
 import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
-import dev.phlogiston.base.App
-import dev.phlogiston.base.di.module.ActivityBindingModule
-import dev.phlogiston.base.di.module.AppModule
-import dev.phlogiston.base.di.module.ViewModelModule
+import dev.phlogiston.todojust.App
+import dev.phlogiston.todojust.di.module.ActivityBindingModule
+import dev.phlogiston.todojust.di.module.AppModule
+import dev.phlogiston.todojust.di.module.ViewModelModule
 import javax.inject.Singleton
 
 @Singleton

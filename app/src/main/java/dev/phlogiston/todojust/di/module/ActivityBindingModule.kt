@@ -5,7 +5,7 @@ import dagger.android.ContributesAndroidInjector
 <<<<<<< HEAD:app/src/main/java/dev/phlogiston/todojust/di/module/ActivityBindingModule.kt
 import dev.phlogiston.todojust.main.MainActivity
 =======
-import dev.phlogiston.base.ui.main.MainActivity
+import dev.phlogiston.todojust.ui.main.MainActivity
 >>>>>>> base/master:app/src/main/java/dev/phlogiston/base/di/module/ActivityBindingModule.kt
 
 @Module

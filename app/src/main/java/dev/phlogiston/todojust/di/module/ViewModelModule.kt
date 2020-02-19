@@ -11,7 +11,7 @@ import dev.phlogiston.todojust.core.mvvm.ViewModelFactory
 import dev.phlogiston.todojust.main.MainViewModel
 =======
 import dev.phlogiston.base.core.mvvm.ViewModelFactory
-import dev.phlogiston.base.ui.main.MainViewModel
+import dev.phlogiston.todojust.ui.main.MainViewModel
 >>>>>>> base/master:app/src/main/java/dev/phlogiston/base/di/module/ViewModelModule.kt
 
 @Suppress("unused")

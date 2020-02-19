@@ -1,8 +1,4 @@
-<<<<<<< HEAD:app/src/main/java/dev/phlogiston/todojust/main/MainActivity.kt
-package dev.phlogiston.todojust.main
-=======
-package dev.phlogiston.base.ui.main
->>>>>>> base/master:app/src/main/java/dev/phlogiston/todojust/ui/main/MainActivity.kt
+package dev.phlogiston.todojust.ui.main
 
 import android.os.Bundle
 import dev.phlogiston.todojust.R

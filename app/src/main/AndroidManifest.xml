@@ -10,11 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
-        <activity android:name="dev.phlogiston.todojust.main.MainActivity">
-=======
-        <activity android:name="dev.phlogiston.base.ui.main.MainActivity">
->>>>>>> base/master
+        <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

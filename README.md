@@ -1,3 +1,1 @@
-# ToDoJust
-
-coming soon..
+# Base Android project

@@ -1,4 +1,4 @@
-package dev.phlogiston.base.main
+package dev.phlogiston.base.ui.main
 
 import dev.phlogiston.base.core.mvvm.BaseViewModel
 import javax.inject.Inject

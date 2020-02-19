@@ -1,4 +1,4 @@
-package dev.phlogiston.base.main
+package dev.phlogiston.base.ui.main
 
 import android.view.View
 import dev.phlogiston.base.R

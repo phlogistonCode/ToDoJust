@@ -7,7 +7,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import dev.phlogiston.base.core.mvvm.ViewModelFactory
-import dev.phlogiston.base.main.MainViewModel
+import dev.phlogiston.base.ui.main.MainViewModel
 
 @Suppress("unused")
 @Module

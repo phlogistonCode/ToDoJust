@@ -1,8 +1,7 @@
-package dev.phlogiston.todojust.core
+package dev.phlogiston.todojust.core.base
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
@@ -23,13 +22,10 @@ import dev.phlogiston.todojust.core.mvvm.ViewModelFactory
 import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 
-abstract class BaseFragment: DaggerFragment() {
+abstract class BaseFragment(@LayoutRes layoutRes: Int): DaggerFragment(layoutRes) {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
-
-    @get:LayoutRes
-    protected abstract val layoutRes: Int
 
     open val viewModel by lazy { viewModel<BaseViewModel>(viewModelFactory) }
 
@@ -37,12 +33,6 @@ abstract class BaseFragment: DaggerFragment() {
     open val subTitle: String? = null
     @ColorRes
     open val statusBarColor: Int? = null
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ) = activity!!.layoutInflater.inflate(layoutRes, container, false)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -56,12 +46,12 @@ abstract class BaseFragment: DaggerFragment() {
 
     override fun onResume() {
         super.onResume()
-        if (statusBarColor != null) {
+        statusBarColor?.let { sb ->
             context?.let {
                 activity?.window?.statusBarColor =
-                    ContextCompat.getColor(it, statusBarColor!!)
+                    ContextCompat.getColor(it, sb)
             }
-        } else {
+        } ?: kotlin.run {
             context?.let {
                 activity?.window?.statusBarColor =
                     ContextCompat.getColor(it, R.color.colorPrimaryDark)
@@ -87,7 +77,7 @@ abstract class BaseFragment: DaggerFragment() {
             }
         }
         toolbar.title = getString(title)
-        val color = ContextCompat.getColor(activity!!, colorRes)
+        val color = ContextCompat.getColor(requireActivity(), colorRes)
         toolbar.navigationIcon?.let { DrawableCompat.setTint(it.mutate(), color) }
         toolbar.setTitleTextColor(color)
     }

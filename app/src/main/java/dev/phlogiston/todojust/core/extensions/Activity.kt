@@ -15,7 +15,7 @@ import dev.phlogiston.todojust.R
 inline fun <reified T : ViewModel> AppCompatActivity.viewModel(
     factory: ViewModelProvider.Factory
 ): T {
-    return ViewModelProviders.of(this, factory)[T::class.java]
+    return ViewModelProvider(this, factory)[T::class.java]
 }
 
 fun Activity.checkPermission(permission: String) = checkPermission(this, permission)

@@ -6,9 +6,7 @@ import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import dev.phlogiston.todojust.App
-import dev.phlogiston.todojust.di.module.ActivityBindingModule
-import dev.phlogiston.todojust.di.module.AppModule
-import dev.phlogiston.todojust.di.module.ViewModelModule
+import dev.phlogiston.todojust.di.module.*
 import javax.inject.Singleton
 
 @Singleton
@@ -17,6 +15,9 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         AppModule::class,
         ActivityBindingModule::class,
+        IOModule::class,
+        PersistanceModule::class,
+        NavigationModule::class,
         ViewModelModule::class
     ]
 )

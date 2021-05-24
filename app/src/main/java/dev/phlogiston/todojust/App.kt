@@ -1,6 +1,5 @@
 package dev.phlogiston.todojust
 
-import android.content.res.Resources
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import dev.phlogiston.todojust.di.DaggerAppComponent
@@ -11,10 +10,6 @@ class App : DaggerApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        res = resources
     }
 
-    companion object {
-        lateinit var res: Resources
-    }
 }

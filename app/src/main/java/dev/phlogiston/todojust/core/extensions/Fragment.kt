@@ -18,15 +18,14 @@ import dev.phlogiston.todojust.R
 inline fun <reified T : ViewModel> Fragment.viewModel(
     factory: ViewModelProvider.Factory
 ): T {
-
-    return ViewModelProviders.of(this, factory)[T::class.java]
+    return ViewModelProvider(this, factory)[T::class.java]
 }
 
 inline fun <reified T : ViewModel> Fragment.activityViewModel(
     factory: ViewModelProvider.Factory
 ): T {
     return activity?.let {
-        ViewModelProviders.of(it, factory)[T::class.java]
+        ViewModelProvider(it, factory)[T::class.java]
     } ?: throw Exception("no activity vm")
 }
 
@@ -76,7 +75,7 @@ fun checkButton(
     checkBox.forEach { _ -> checkCBs(button, checkBox) }
 }
 
-fun Fragment.checkPermission(permission: String) = checkPermission(activity!!, permission)
+fun Fragment.checkPermission(permission: String) = checkPermission(requireActivity(), permission)
 
 fun Fragment.showCustomDialog(
     @StringRes title: Int? = null,

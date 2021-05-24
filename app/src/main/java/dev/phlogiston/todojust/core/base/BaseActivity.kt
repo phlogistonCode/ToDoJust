@@ -1,34 +1,70 @@
-package dev.phlogiston.todojust.core
+package dev.phlogiston.todojust.core.base
 
 import android.view.ViewGroup
-import androidx.annotation.IdRes
+import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import com.github.terrakok.cicerone.Navigator
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
 import dagger.android.support.DaggerAppCompatActivity
 import dev.phlogiston.todojust.R
 import dev.phlogiston.todojust.core.extensions.viewModel
 import dev.phlogiston.todojust.core.mvvm.BaseViewModel
 import dev.phlogiston.todojust.core.mvvm.ViewModelFactory
+import dev.phlogiston.todojust.core.tools.HideableSupportAppNavigator
 import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 
 abstract class BaseActivity: DaggerAppCompatActivity() {
 
-    @get:IdRes
-    protected abstract val layoutRes: Int
+    private val navigator: Navigator by lazy {
+        HideableSupportAppNavigator(this, R.id.container)
+    }
+
+    @Inject
+    lateinit var router: Router
+
+    @Inject
+    lateinit var navigatorHolder: NavigatorHolder
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
     open val viewModel by lazy { viewModel<BaseViewModel>(viewModelFactory) }
 
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        navigatorHolder.setNavigator(navigator)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        navigatorHolder.removeNavigator()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        router.exit()
+        return super.onSupportNavigateUp()
+    }
+
     override fun onBackPressed() {
-        val fragment = supportFragmentManager.findFragmentById(layoutRes)
-        if (fragment is OnBackPressed) {
-            if ((fragment as? OnBackPressed)?.onBackPressed()!!) super.onBackPressed()
-        } else super.onBackPressed()
+        val fragment = supportFragmentManager.findFragmentById(R.id.container)
+        (fragment as? OnBackPressed)?.onBackPressed()?.not()?.let {
+            if (it) {
+                router.exit()
+            }
+        } ?: router.exit()
+    }
+
+    fun showSystemMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    fun showSystemMessage(@StringRes res: Int) {
+        showSystemMessage(getString(res))
     }
 
     fun initToolbar(

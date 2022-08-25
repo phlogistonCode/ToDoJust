@@ -35,6 +35,8 @@ abstract class BaseActivity: DaggerAppCompatActivity() {
     lateinit var viewModelFactory: ViewModelFactory
     open val viewModel by lazy { viewModel<BaseViewModel>(viewModelFactory) }
 
+    abstract fun setTitle(text: String?)
+
     override fun onResumeFragments() {
         super.onResumeFragments()
         navigatorHolder.setNavigator(navigator)
@@ -77,8 +79,8 @@ abstract class BaseActivity: DaggerAppCompatActivity() {
         val toolbar = toolbar
         val color = ContextCompat.getColor(this, colorRes)
         if (needBackButton) {
-            if (isCloseIcon) toolbar.setNavigationIcon(R.drawable.ic_close_back_24dp)
-            else toolbar.setNavigationIcon(R.drawable.ic_arrow_back_24dp)
+            if (isCloseIcon) toolbar.setNavigationIcon(R.drawable.ic_close)
+            else toolbar.setNavigationIcon(R.drawable.ic_back)
             toolbar.setNavigationOnClickListener {
                 navigate?.invoke() ?: run { onBackPressed() }
             }

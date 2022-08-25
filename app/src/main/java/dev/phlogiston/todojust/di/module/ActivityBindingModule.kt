@@ -8,5 +8,5 @@ import dev.phlogiston.todojust.ui.main.MainActivity
 abstract class ActivityBindingModule {
 
     @ContributesAndroidInjector(modules = [MainModule::class])
-    abstract fun provideMainActivity() : MainActivity
+    abstract fun mainActivity() : MainActivity
 }

@@ -30,10 +30,11 @@ abstract class BaseFragment(@LayoutRes layoutRes: Int): DaggerFragment(layoutRes
     open val viewModel by lazy { viewModel<BaseViewModel>(viewModelFactory) }
 
     open val title: String? = null
-    open val subTitle: String? = null
+
     @ColorRes
     open val statusBarColor: Int? = null
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         bind()
@@ -57,30 +58,11 @@ abstract class BaseFragment(@LayoutRes layoutRes: Int): DaggerFragment(layoutRes
                     ContextCompat.getColor(it, R.color.colorPrimaryDark)
             }
         }
+        (activity as? BaseActivity)?.setTitle(title)
     }
 
     abstract fun bind()
     abstract fun initViews(view: View)
-
-    fun initToolbar(
-        @StringRes title: Int,
-        colorRes: Int = R.color.colorPrimaryDark,
-        isCloseIcon: Boolean = false,
-        needBackButton: Boolean = true,
-        navigate: (() -> Unit?)? = null
-    ) {
-        if (needBackButton) {
-            if (isCloseIcon) toolbar.setNavigationIcon(R.drawable.ic_close_back_24dp)
-            else toolbar.setNavigationIcon(R.drawable.ic_arrow_back_24dp)
-            toolbar.setNavigationOnClickListener {
-                navigate?.invoke() ?: run { activity?.onBackPressed() }
-            }
-        }
-        toolbar.title = getString(title)
-        val color = ContextCompat.getColor(requireActivity(), colorRes)
-        toolbar.navigationIcon?.let { DrawableCompat.setTint(it.mutate(), color) }
-        toolbar.setTitleTextColor(color)
-    }
 
     fun hideKeyboard() {
         activity?.let { activity ->

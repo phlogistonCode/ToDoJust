@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Mimika</string>
+    <string name="app_name">ToDoJust</string>
+
+    <string name="title.tasks">Задачи</string>
+    <string name="title.calendar">Календарь</string>
 
 </resources>

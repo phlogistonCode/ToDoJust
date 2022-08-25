@@ -10,7 +10,8 @@ import dev.phlogiston.todojust.db.notes.NotesDao
     entities = [
         Note::class
     ],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {

@@ -2,17 +2,16 @@ package dev.phlogiston.todojust.ui.main
 
 import android.content.Intent
 import android.net.Uri
-import android.provider.SyncStateContract
 import com.github.terrakok.cicerone.androidx.ActivityScreen
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import dev.phlogiston.todojust.ui.main.calendar.CalendarFragment
-import dev.phlogiston.todojust.ui.main.home.HomeFragment
+import dev.phlogiston.todojust.ui.main.tasks.TasksFragment
 
 object Screens {
 
     fun main() = ActivityScreen { Intent(it, MainActivity::class.java) }
 
-    fun home() = FragmentScreen { HomeFragment() }
+    fun tasks() = FragmentScreen { TasksFragment() }
 
     fun calendar() = FragmentScreen { CalendarFragment() }
 

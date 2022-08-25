@@ -9,7 +9,6 @@ import dagger.multibindings.IntoMap
 import dev.phlogiston.todojust.core.mvvm.ViewModelFactory
 import dev.phlogiston.todojust.ui.main.MainViewModel
 
-@Suppress("unused")
 @Module
 abstract class ViewModelModule {
 

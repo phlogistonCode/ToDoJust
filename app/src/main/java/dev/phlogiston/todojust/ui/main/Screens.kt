@@ -5,6 +5,7 @@ import android.net.Uri
 import com.github.terrakok.cicerone.androidx.ActivityScreen
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import dev.phlogiston.todojust.ui.main.calendar.CalendarFragment
+import dev.phlogiston.todojust.ui.main.settings.SettingsFragment
 import dev.phlogiston.todojust.ui.main.tasks.TasksFragment
 
 object Screens {
@@ -14,6 +15,8 @@ object Screens {
     fun tasks() = FragmentScreen { TasksFragment() }
 
     fun calendar() = FragmentScreen { CalendarFragment() }
+
+    fun settings() = FragmentScreen { SettingsFragment() }
 
     fun shareLink(url: String, title: String) = ActivityScreen {
         val shareIntent = Intent(Intent.ACTION_SEND)

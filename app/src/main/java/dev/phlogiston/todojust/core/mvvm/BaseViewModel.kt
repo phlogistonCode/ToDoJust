@@ -94,4 +94,10 @@ open class BaseViewModel : ViewModel() {
         }
     }
 
+    protected fun launch(func: suspend () -> Unit) {
+        viewModelScope.launch {
+            func.invoke()
+        }
+    }
+
 }

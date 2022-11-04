@@ -3,5 +3,8 @@
 
     <string name="title.tasks">Задачи</string>
     <string name="title.calendar">Календарь</string>
+    <string name="title.settings">Настройки</string>
+
+    <string name="settings.dynamicThemeSwitcher">Включить динамическую тему</string>
 
 </resources>

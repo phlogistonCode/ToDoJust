@@ -15,4 +15,8 @@ class NotesRepository @Inject constructor(
         executeDb {
             notesDao.get()
         }
+
+    suspend fun insert(note: Note) {
+        notesDao.insert(note)
+    }
 }

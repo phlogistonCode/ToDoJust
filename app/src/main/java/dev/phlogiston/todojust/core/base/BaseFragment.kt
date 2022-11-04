@@ -55,7 +55,7 @@ abstract class BaseFragment(@LayoutRes layoutRes: Int): DaggerFragment(layoutRes
         } ?: kotlin.run {
             context?.let {
                 activity?.window?.statusBarColor =
-                    ContextCompat.getColor(it, R.color.colorPrimaryDark)
+                    ContextCompat.getColor(it, R.color.background)
             }
         }
         (activity as? BaseActivity)?.setTitle(title)

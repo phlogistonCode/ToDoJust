@@ -22,5 +22,5 @@ interface NotesDao {
     fun delete()
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(note: Note)
+    suspend fun insert(note: Note)
 }

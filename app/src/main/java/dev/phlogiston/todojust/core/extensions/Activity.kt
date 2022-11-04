@@ -1,6 +1,7 @@
 package dev.phlogiston.todojust.core.extensions
 
 import android.app.Activity
+import android.content.res.Configuration
 import androidx.annotation.ArrayRes
 import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
@@ -29,8 +30,8 @@ fun Activity.showCustomDialog(
     negative: () -> Unit = {},
     @StringRes positiveButton: Int? = android.R.string.ok,
     @StringRes negativeButton: Int? = null,
-    @ColorRes positiveColor: Int? = R.color.colorPrimary,
-    @ColorRes negativeColor: Int? = R.color.colorAccent
+    @ColorRes positiveColor: Int? = R.color.primary,
+    @ColorRes negativeColor: Int? = R.color.secondary
 ) {
     val dialogListener = android.content.DialogInterface.OnClickListener { _, which ->
         when (which) {

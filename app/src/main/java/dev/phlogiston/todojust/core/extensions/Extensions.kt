@@ -1,8 +1,11 @@
 package dev.phlogiston.todojust.core.extensions
 
 import android.content.Context
+import android.content.res.Configuration
 import android.content.res.Resources
 import androidx.core.content.PermissionChecker
+import androidx.fragment.app.Fragment
+import dev.phlogiston.todojust.ToDoJustApp
 
 fun Boolean.toInt() = if (this) 1 else 0
 

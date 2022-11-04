@@ -1,6 +1,8 @@
 package dev.phlogiston.todojust.core.extensions
 
+import android.app.Activity
 import android.content.DialogInterface
+import android.content.res.Configuration
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -84,8 +86,8 @@ fun Fragment.showCustomDialog(
     negative: () -> Unit = {},
     @StringRes positiveButton: Int? = android.R.string.ok,
     @StringRes negativeButton: Int? = null,
-    @ColorRes positiveColor: Int? = R.color.colorPrimary,
-    @ColorRes negativeColor: Int? = R.color.colorAccent
+    @ColorRes positiveColor: Int? = R.color.primary,
+    @ColorRes negativeColor: Int? = R.color.secondary
 ) {
     val dialogListener = DialogInterface.OnClickListener { _, which ->
         when (which) {

@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 import com.github.terrakok.cicerone.Command
 import com.github.terrakok.cicerone.androidx.AppNavigator
+import com.github.terrakok.cicerone.androidx.FragmentScreen
 import dev.phlogiston.todojust.R
 
 open class HideableSupportAppNavigator(activity: FragmentActivity, containerId: Int) :
@@ -22,11 +23,12 @@ open class HideableSupportAppNavigator(activity: FragmentActivity, containerId: 
     }
 
     override fun setupFragmentTransaction(
+        screen: FragmentScreen,
         fragmentTransaction: FragmentTransaction,
         currentFragment: Fragment?,
-        nextFragment: Fragment?
+        nextFragment: Fragment
     ) {
-        super.setupFragmentTransaction(fragmentTransaction, currentFragment, nextFragment)
+        super.setupFragmentTransaction(screen, fragmentTransaction, currentFragment, nextFragment)
         fragmentTransaction.setCustomAnimations(
             R.anim.slide_in_left,
             R.anim.slide_out_right,

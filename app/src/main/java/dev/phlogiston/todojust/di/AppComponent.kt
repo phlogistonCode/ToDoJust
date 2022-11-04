@@ -4,7 +4,7 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
-import dev.phlogiston.todojust.App
+import dev.phlogiston.todojust.ToDoJustApp
 import dev.phlogiston.todojust.di.module.*
 import javax.inject.Singleton
 
@@ -20,12 +20,12 @@ import javax.inject.Singleton
         ViewModelModule::class
     ]
 )
-interface AppComponent : AndroidInjector<App> {
+interface AppComponent : AndroidInjector<ToDoJustApp> {
 
     @Component.Builder
     interface Builder {
         @BindsInstance
-        fun application(app: App): Builder
+        fun application(toDoJustApp: ToDoJustApp): Builder
 
         fun build(): AppComponent
     }

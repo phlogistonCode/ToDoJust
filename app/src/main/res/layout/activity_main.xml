@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar"
@@ -17,6 +19,7 @@
             android:layout_height="?android:actionBarSize"
             android:fitsSystemWindows="true"
             app:elevation="0dp"
+            android:visibility="gone"
 
             app:layout_constraintTop_toTopOf="parent"
             >
@@ -54,7 +57,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/back"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:text="Mercedes-Benz"
+                        tools:text="ToDoJust"
                         tools:visibility="visible" />
 
                     <TextView
@@ -92,9 +95,9 @@
             android:id="@+id/bottomMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:backgroundTint="@color/colorPrimary"
-            app:itemIconTint="@color/bottom_menu_color"
-            app:itemTextColor="@color/bottom_menu_color"
+            app:backgroundTint="@color/surface"
+            app:itemIconTint="@color/onSurface"
+            app:itemTextColor="@color/onSurface"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_navigation_main"
 
@@ -107,7 +110,6 @@
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white_50"
         android:clickable="true"
         android:visibility="gone"
         android:focusable="true">

@@ -3,6 +3,7 @@ package dev.phlogiston.todojust.db.base
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import java.time.LocalDate
 import java.util.*
 
 class Converters {
@@ -30,7 +31,7 @@ class Converters {
 
     @TypeConverter
     fun fromMapToString(data: String?): Map<String, String>? =
-        gson.fromJson(data,  object : TypeToken<Map<String, String>>() {}.type)
+        gson.fromJson(data, object : TypeToken<Map<String, String>>() {}.type)
 
     @TypeConverter
     fun toTimestamp(value: Long?): Date? =
@@ -39,5 +40,13 @@ class Converters {
     @TypeConverter
     fun fromTimestamp(date: Date?): Long? =
         date?.time
+
+    @TypeConverter
+    fun toLocalDate(date: String): LocalDate =
+        gson.fromJson(date, object : TypeToken<LocalDate>() {}.type)
+
+    @TypeConverter
+    fun fromLocalDate(date: LocalDate): String =
+        gson.toJson(date)
 
 }

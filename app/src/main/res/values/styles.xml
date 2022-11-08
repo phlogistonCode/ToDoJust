@@ -10,4 +10,20 @@
         <item name="android:colorBackgroundCacheHint">@null</item>
     </style>
 
+    <style name="TextInputFilled" parent="Widget.Material3.TextInputLayout.FilledBox">
+
+    </style>
+
+    <style name="TextInputOutlined" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+
+    </style>
+
+    <style name="BottomSheetDialog" parent="@style/Theme.Material3.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+    <style name="BottomSheet" parent="@style/Widget.Material3.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_bottom_sheet</item>
+    </style>
+
 </resources>

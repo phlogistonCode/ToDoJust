@@ -3,17 +3,17 @@ package dev.phlogiston.todojust.db.base
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import dev.phlogiston.todojust.db.notes.Note
-import dev.phlogiston.todojust.db.notes.NotesDao
+import dev.phlogiston.todojust.db.tasks.Task
+import dev.phlogiston.todojust.db.tasks.TasksDao
 
 @Database(
     entities = [
-        Note::class
+        Task::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun notes(): NotesDao
+    abstract fun tasks(): TasksDao
 }

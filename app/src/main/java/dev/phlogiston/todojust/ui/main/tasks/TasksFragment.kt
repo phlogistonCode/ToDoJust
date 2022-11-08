@@ -11,7 +11,6 @@ import dev.phlogiston.todojust.core.extensions.enableBtnIfNotEmptyEditText
 import dev.phlogiston.todojust.core.extensions.observeNullable
 import dev.phlogiston.todojust.databinding.FragmentTasksBinding
 import dev.phlogiston.todojust.ui.main.MainViewModel
-import timber.log.Timber
 
 class TasksFragment : BaseMainFragment(R.layout.fragment_tasks) {
 
@@ -22,8 +21,8 @@ class TasksFragment : BaseMainFragment(R.layout.fragment_tasks) {
 
     override fun bind() {
         with(viewModel) {
-            getNotes()
-            observeNullable(notes) {
+            getTasks()
+            observeNullable(tasks) {
                 tasksAdapter.submitList(it)
             }
         }

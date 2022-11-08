@@ -5,7 +5,7 @@ import androidx.room.Room
 import dev.phlogiston.todojust.db.base.AppDatabase
 import dagger.Module
 import dagger.Provides
-import dev.phlogiston.todojust.db.notes.NotesDao
+import dev.phlogiston.todojust.db.tasks.TasksDao
 import javax.inject.Singleton
 
 @Module
@@ -18,12 +18,13 @@ class IOModule {
             context,
             AppDatabase::class.java, "just_database"
         )
+            .fallbackToDestructiveMigration()
             .addMigrations(
             )
             .build()
 
     @Provides
     @Singleton
-    fun provideNotesDao(db: AppDatabase): NotesDao = db.notes()
+    fun provideNotesDao(db: AppDatabase): TasksDao = db.tasks()
 
 }

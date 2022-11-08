@@ -15,16 +15,13 @@ import com.kizitonwose.calendar.view.MonthDayBinder
 import com.kizitonwose.calendar.view.MonthHeaderFooterBinder
 import com.kizitonwose.calendar.view.ViewContainer
 import dev.phlogiston.todojust.R
-import dev.phlogiston.todojust.core.base.BaseFragment
 import dev.phlogiston.todojust.core.base.BaseMainFragment
-import dev.phlogiston.todojust.core.extensions.invisible
-import dev.phlogiston.todojust.core.extensions.setColor
-import dev.phlogiston.todojust.core.extensions.visible
+import dev.phlogiston.todojust.core.extensions.*
 import dev.phlogiston.todojust.databinding.CalendarDayItemBinding
 import dev.phlogiston.todojust.databinding.CalendarHeaderBinding
 import dev.phlogiston.todojust.databinding.FragmentCalendarBinding
-import dev.phlogiston.todojust.databinding.FragmentSettingsBinding
-import dev.phlogiston.todojust.db.notes.Note
+import dev.phlogiston.todojust.db.tasks.Task
+import dev.phlogiston.todojust.ui.main.MainViewModel
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.YearMonth
@@ -33,6 +30,7 @@ import java.time.format.DateTimeFormatter
 class CalendarFragment : BaseMainFragment(R.layout.fragment_calendar) {
 
     private val binding by viewBinding(FragmentCalendarBinding::bind)
+    override val viewModel by lazy { activityViewModel<MainViewModel>(viewModelFactory) }
 
     private var selectedDate: LocalDate? = null
     private val today = LocalDate.now()
@@ -41,19 +39,25 @@ class CalendarFragment : BaseMainFragment(R.layout.fragment_calendar) {
     private val selectionFormatter = DateTimeFormatter.ofPattern("d MMM yyyy")
 
     override fun bind() {
+        with(viewModel) {
+            getTasks()
+            observeNullable(tasksByDate) {
+                eventsAdapter.submitList(it)
+            }
+        }
     }
 
     override fun initViews(view: View) {
         binding.events.apply {
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             adapter = eventsAdapter
-            addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
         }
 
         binding.calendar.monthScrollListener = {
             // Select the first day of the visible month.
-            selectDate(it.yearMonth.atDay(1))
+            selectDate(LocalDate.now())
         }
+
 
         val daysOfWeek = daysOfWeek()
         val currentMonth = YearMonth.now()
@@ -64,6 +68,7 @@ class CalendarFragment : BaseMainFragment(R.layout.fragment_calendar) {
             setup(startMonth, endMonth, daysOfWeek.first())
             scrollToMonth(currentMonth)
         }
+        binding.floatingButton.setOnClickListener { CalendarAddTaskDialog().show(parentFragmentManager, "addTask") }
     }
 
     private fun selectDate(date: LocalDate) {
@@ -72,13 +77,10 @@ class CalendarFragment : BaseMainFragment(R.layout.fragment_calendar) {
             selectedDate = date
             oldDate?.let { binding.calendar.notifyDateChanged(it) }
             binding.calendar.notifyDateChanged(date)
-            updateAdapterForDate(date)
+            binding.selectedDate.text = selectionFormatter.format(date)
+            viewModel.getTasksByDate(date)
+            viewModel.selectDate(date)
         }
-    }
-
-    private fun updateAdapterForDate(date: LocalDate) {
-        eventsAdapter.submitList(listOf(Note(text = "test")))
-        binding.selectedDate.text = selectionFormatter.format(date)
     }
 
     private fun configureBinders(daysOfWeek: List<DayOfWeek>) {

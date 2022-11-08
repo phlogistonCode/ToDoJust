@@ -1,8 +1,7 @@
 package dev.phlogiston.todojust.core.extensions
 
-import android.app.Activity
 import android.content.DialogInterface
-import android.content.res.Configuration
+import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -14,7 +13,6 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import dev.phlogiston.todojust.R
 
 inline fun <reified T : ViewModel> Fragment.viewModel(
@@ -32,7 +30,7 @@ inline fun <reified T : ViewModel> Fragment.activityViewModel(
 }
 
 fun enableBtnIfNotEmptyEditText(
-    button: Button,
+    button: View,
     vararg editText: EditText,
     needSymbols: Int = 1
 ) {
@@ -42,7 +40,7 @@ fun enableBtnIfNotEmptyEditText(
 }
 
 private fun checkETs(
-    button: Button,
+    button: View,
     editText: Array<out EditText>,
     needSymbols: Int
 ) {
@@ -55,14 +53,14 @@ private fun checkETs(
 }
 
 fun enableBtnIfNotEmptyCheckBox(
-    button: Button,
+    button: View,
     vararg checkBox: CheckBox
 ) {
     checkBox.forEach { it.setOnClickListener { checkCBs(button, checkBox) } }
 }
 
 private fun checkCBs(
-    button: Button,
+    button: View,
     checkBox: Array<out CheckBox>
 ) {
     var buttonEnabled = true

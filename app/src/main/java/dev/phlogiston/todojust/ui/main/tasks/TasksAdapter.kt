@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dev.phlogiston.todojust.R
 import dev.phlogiston.todojust.databinding.ItemTaskBinding
-import dev.phlogiston.todojust.db.notes.Note
+import dev.phlogiston.todojust.db.tasks.Task
 
-class TasksAdapter : ListAdapter<Note, TasksAdapter.ViewHolder>(DiffCallback()) {
+class TasksAdapter : ListAdapter<Task, TasksAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
@@ -26,11 +26,11 @@ class TasksAdapter : ListAdapter<Note, TasksAdapter.ViewHolder>(DiffCallback()) 
         holder.bind(item)
     }
 
-    class DiffCallback : DiffUtil.ItemCallback<Note>() {
-        override fun areItemsTheSame(oldItem: Note, newItem: Note) =
+    class DiffCallback : DiffUtil.ItemCallback<Task>() {
+        override fun areItemsTheSame(oldItem: Task, newItem: Task) =
             oldItem.id == newItem.id
 
-        override fun areContentsTheSame(oldItem: Note, newItem: Note) =
+        override fun areContentsTheSame(oldItem: Task, newItem: Task) =
             oldItem == newItem
     }
 
@@ -45,7 +45,7 @@ class TasksAdapter : ListAdapter<Note, TasksAdapter.ViewHolder>(DiffCallback()) 
             binding.root.setOnClickListener { itemClick(bindingAdapterPosition) }
         }
 
-        fun bind(item: Note) =
+        fun bind(item: Task) =
         with(binding) {
             text.text = item.text
         }
